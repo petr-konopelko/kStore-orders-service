@@ -7,6 +7,8 @@ using Orders.DAL.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddEnvironmentVariables("OrdersService_");
+
 builder.Services.Configure<DatabaseConnectionsOptions>(builder.Configuration.GetSection("DatabaseConnections"));
 builder.Services.AddSingleton<IConnectionStringProvider, ConnectionStringProvider>();
 
