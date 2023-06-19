@@ -20,9 +20,6 @@ var app = builder.Build();
 //var ordersGroup = app.MapGroup("/orders");
 //ordersGroup.MapGet("", async (IOrderService orderService) => await orderService.GetOrdersAsync());
 
-app.Logger.LogInformation(app.Configuration.GetConnectionString("Orders"));
-
-
 var customerGroup = app.MapGroup("/customers");
 customerGroup.MapGet("", async (ICustomerService customerService) => await customerService.GetAllAsync());
 customerGroup.MapPost("", async ([FromBody] CustomerDto customer, ICustomerService customerService) =>
